@@ -10,7 +10,7 @@
     </div> -->
     <div class="container">
       <div class="Header">
-        <h2>欢迎来到{{module_name}}兴趣部落11222221</h2>
+        <h2>欢迎来到{{module_name}}兴趣部落灌灌灌灌灌哈哈哈</h2>
       </div>
       <div class="bodys">
         <div class="banner">
