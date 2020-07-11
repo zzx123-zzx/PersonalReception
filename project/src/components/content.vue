@@ -13,9 +13,12 @@
         <h2>欢迎来到{{module_name}}兴趣部落灌灌灌灌灌哈哈哈</h2>
       </div>
       <div class="bodys">
-        <div class="banner">
-          <img :src="banner_src" height="400" width="100%">
-        </div>
+          <div class="module_title">
+            <div class="module_info">
+              <span>部落:{{module_name}}</span>
+              <span>部落文章数:123</span>
+            </div>
+          </div>
           <div style="width: 80%;display: flex; flex-wrap: wrap; margin-top: 20px;">
             <div class="content" v-for="item in article">
                 <img :src="item.title_src" alt="" width="100px" height="100px"/>
@@ -89,7 +92,7 @@
   .bodys{
     /* margin-top: 20px; */
     height: 100%;
-    display: flex;
+   display: flex;
     justify-content: center;
     margin-top: 30px;
     flex-flow: row wrap;
@@ -113,5 +116,15 @@
   }
   .module_message span{
     width: 100%;
+  }
+  .module_title{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .module_info{
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
   }
 </style>
