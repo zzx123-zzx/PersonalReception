@@ -39,6 +39,8 @@
                   <img src="../../static/swiper3.jpg" width="100%" height="100%"/>
                 </el-carousel-item>
             </el-carousel>
+
+            <!-- 控制显示不同view -->
             <router-view :key="key"></router-view>
           </div>
         </div>
@@ -52,7 +54,7 @@
         <!-- 简介结束 -->
       </div>
     </div>
-    <div class="footer"></div>
+    <!-- <div class="footer"></div> -->
   </div>
 </template>
 
@@ -84,11 +86,11 @@
       async getAllFatherModule(){
         await this.$axios.get("http://localhost/php/sfkbbs/index/getFatherModule.php").then(result=>{
           this.fatherModule = result.data;
-          for(var i =0; i<this.fatherModule.length;i++){
-            // console.log(this.fatherModule[i].id);
-            this.fatherId.push(this.fatherModule[i].id);
-            // console.log(this.fatherId);
-          }
+          // for(var i =0; i<this.fatherModule.length;i++){
+          //   // console.log(this.fatherModule[i].id);
+          //   this.fatherId.push(this.fatherModule[i].id);
+          //   // console.log(this.fatherId);
+          // }
         })
       },
       async getAllSonModule(){
@@ -103,6 +105,7 @@
 
     },
     computed:{
+      //控制页面跳转显示对应的routr-view
     	key(){
     	    return this.$route.path;
     	}

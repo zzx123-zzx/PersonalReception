@@ -10,7 +10,12 @@
     </div> -->
     <div class="container">
       <div class="Header">
-        <h2>欢迎来到{{module_name}}兴趣部落灌灌灌灌灌哈哈哈</h2>
+        <div class="logoContainer">
+          <div class="logo">
+            <img src="../assets/logo.png">
+          </div>
+        </div>
+        <!-- <h2>欢迎来到{{module_name}}兴趣部落灌灌灌灌灌哈哈哈</h2>  -->
       </div>
       <div class="bodys">
           <div class="module_title">
@@ -24,9 +29,8 @@
                 <img :src="item.title_src" alt="" width="100px" height="100px"/>
                 <div class="module_message">
                   <span>标题:{{item.title}}</span>
-                  <span>作者:哈哈哈哈哈哈</span>
                   <span>发布时间:{{item.time}}</span>
-                  <span><router-link :to="'/article/'+item.id">文章</router-link></span>
+                  <span><router-link :to="'/article/'+item.id">阅读文章---></router-link></span>
                 </div>
             </div>
           </div>
@@ -80,6 +84,10 @@
 </script>
 
 <style scoped>
+  a{
+    color: red;
+    text-decoration: none;
+  }
   .container{
     width: 100%;
     height: 100%;
@@ -92,9 +100,9 @@
   .bodys{
     /* margin-top: 20px; */
     height: 100%;
-   display: flex;
+    display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 50px;
     flex-flow: row wrap;
   }
   .banner{
@@ -109,6 +117,9 @@
     align-self:flex-end;
     border-bottom: 1px solid #CCCCCC;
     margin-top: 10px;
+  }
+  .content img{
+    border-radius: 10px;
   }
   .module_message{
     display: flex;
@@ -126,5 +137,16 @@
     width: 200px;
     display: flex;
     flex-wrap: wrap;
+  }
+  .logo{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    border: 5px solid lightgreen;
+    box-shadow: darkgrey 10px 10px 30px 5px;
+  }
+  .logo img{
+    width: 100px; height: 100px;
   }
 </style>

@@ -1,13 +1,5 @@
 <template>
   <div>
-    <!-- <div class="fatherModuleBox" v-for="item in fatherModule" :key="item.id">
-      <div class="fatherModuleTitle">
-        <router-link :to="'/content/'+item.id">父版块:{{item.module_name}}</router-link>
-      </div>
-      <div class="sonModuleBox" v-for="sonItem in sonModule" v-if="sonItem.father_module_id==item.id">
-        {{sonItem.module_name}}
-      </div>
-    </div> -->
     <div class="container">
       <div class="son_module">
         <div v-for="sonItem in sonModule" class="box">
@@ -16,13 +8,12 @@
                 <div class="module_message">
                   <span>专属部落:{{sonItem.module_name}}</span>
                   <span>部落简介:{{sonItem.info}}</span>
-                  <router-link :to="'/content/'+sonItem.id">点击此处,前往部落</router-link>
+                  <router-link :to="'/content/'+sonItem.id">前往相关部落---></router-link>
                 </div>
              </div>
           </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -70,6 +61,10 @@
 </script>
 
 <style scoped>
+  a{
+    color: red;
+    text-decoration: none;
+  }
   .container{
     width: 100%;
     height: 100%;
@@ -102,6 +97,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .content img{
+    border-radius: 50%;
   }
   .module_message{
     display: flex;

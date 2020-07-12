@@ -73,7 +73,7 @@
        </div>
      </div>
      <!-- 主盒子结束 -->
-     <div class="footer"></div>
+     <!-- <div class="footer"></div> -->
   </div>
 </template>
 
