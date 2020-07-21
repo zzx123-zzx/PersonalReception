@@ -159,7 +159,7 @@
           await this.$axios.get("http://localhost/php/sfkbbs/index/getAuthor.php?id="+this.author_id).then(result=>{
             let [author] = result.data;
             this.author = author.name;
-            this.author_number = result.data.length;  
+            this.author_number = result.data.length;
             console.log(result.data);
           })
         })
@@ -277,7 +277,10 @@
     background-color: #f5f6f7;
     display: flex;
     flex-flow: row wrap;
-    font-size: 1.5em
+    font-size: 1.5em;
+   }
+   .text_body img{
+     margin-top: 5%;
    }
   .footer{
     height: 10vh;

@@ -49,7 +49,7 @@
         await this.$axios.get("http://localhost/php/sfkbbs/index/getSonModule.php?id="+this.id).then(result=>{
           // console.log(result.data);
           this.sonModule = result.data;
-          console.log(this.sonModule);
+          // console.log(this.sonModule);
           // console.log(this.fatherId);
         })
       }

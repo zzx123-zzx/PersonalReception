@@ -29,14 +29,12 @@
         <div class="arltce">
           <div class="content">
             <el-carousel indicator-position="outside">
-                <el-carousel-item>
-                  <img src="../../static/swiper1.jpg" width="100%" height="100%"/>
-                </el-carousel-item>
-                <el-carousel-item>
-                  <img src="../../static/swiper2.jpg" width="100%" height="100%"/>
-                </el-carousel-item>
-                <el-carousel-item>
-                  <img src="../../static/swiper3.jpg" width="100%" height="100%"/>
+
+                <el-carousel-item v-for="item in banner_srcs" :key="item.id">
+                  <!-- {{item.banner_src}} -->
+
+                  <img :src = "item.banner_src" />
+                  <!-- <img src="../../static/1595053985_700265994.jpg"/> -->
                 </el-carousel-item>
             </el-carousel>
 
@@ -67,10 +65,12 @@
         sonModule:[],
         show:false,
         aaa:'2222',
-        count:0
+        count:0,
+        banner_srcs:[]     //banner图片路径
       }
     },
     async created(){
+      this.getBanner(),
       this.getAllFatherModule()
     },
     provide(){
@@ -99,6 +99,13 @@
           this.sonModule = result.data;
           // console.log(this.fatherId);
         })
+      },
+
+      //获取轮播图数据
+      async getBanner(){
+         await this.$axios.get("http://localhost/php/sfkbbs/admin/banner.php").then(result=>{
+            this.banner_srcs = result.data;
+         })
       }
     },
     watch:{

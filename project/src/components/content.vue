@@ -138,6 +138,10 @@
     display: flex;
     flex-wrap: wrap;
   }
+  .module_info span{
+    line-height: 30px;
+    width: 100%;
+  }
   .logo{
     width: 100px;
     height: 100px;
