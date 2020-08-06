@@ -9,10 +9,12 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import store from './store';
 Vue.prototype.$axios = axios;
+axios.defaults.baseURL = "http://localhost/php/sfkbbs/";         //设置全局axios统一请求地址
 Vue.prototype.$cookie = cookie;
 
 
 Vue.config.productionTip = false;
+
 
 import qs from 'qs';
 Vue.prototype.$qs = qs;

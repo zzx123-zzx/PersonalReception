@@ -20,17 +20,17 @@
       <div class="bodys">
           <div class="module_title">
             <div class="module_info">
-              <span>部落:{{module_name}}</span>
-              <span>部落文章数:123</span>
+              <span><i class="el-icon-s-home"></i>部落:{{module_name}}</span>
+              <span><i class="el-icon-s-data"></i>部落文章数:123</span>
             </div>
           </div>
           <div style="width: 80%;display: flex; flex-wrap: wrap; margin-top: 20px;">
             <div class="content" v-for="item in article">
                 <img :src="item.title_src" alt="" width="100px" height="100px"/>
                 <div class="module_message">
-                  <span>标题:{{item.title}}</span>
-                  <span>发布时间:{{item.time}}</span>
-                  <span><router-link :to="'/article/'+item.id">阅读文章---></router-link></span>
+                  <span><i class="el-icon-s-order"></i>标题:{{item.title}}</span>
+                  <span><i class="el-icon-time"></i>发布时间:{{item.time}}</span>
+                  <span><i class="el-icon-location"></i><router-link :to="'/article/'+item.id">阅读文章--></router-link></span>
                 </div>
             </div>
           </div>
@@ -61,20 +61,20 @@
     },
     methods:{
       async getAllSonmodule(){
-        await this.$axios.get("http://localhost/php/sfkbbs/before/all_sonmodule.php?id="+this.id).then(result=>{
+        await this.$axios.get("before/all_sonmodule.php?id="+this.id).then(result=>{
           console.log(result.data);
           this.module_name = result.data[0].module_name;
           this.banner_src = result.data[0].module_src;
         })
       },
       async getContent(){
-        await this.$axios.get("http://localhost/php/sfkbbs/before/all_content.php?id="+this.id).then(result=>{
+        await this.$axios.get("before/all_content.php?id="+this.id).then(result=>{
           // console.log(result.data);
           this.content = result.data;
         })
       },
       async block(){
-        await this.$axios.get("http://localhost/php/sfkbbs/before/all_article.php?id="+this.id).then(result=>{
+        await this.$axios.get("before/all_article.php?id="+this.id).then(result=>{
           console.log(result.data);
           this.article = result.data;
         })
@@ -141,6 +141,8 @@
   .module_info span{
     line-height: 30px;
     width: 100%;
+    font-size: 1.5em;
+    font-weight: bold;
   }
   .logo{
     width: 100px;

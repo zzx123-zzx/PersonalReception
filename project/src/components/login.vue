@@ -60,7 +60,7 @@
     methods:{
       ...mapActions(['VuexFunction']),
       async login(){
-        await this.$axios.post("http://localhost/php/sfkbbs/before/login.php",stringify(this.form)).then(result=>{
+        await this.$axios.post("before/login.php",stringify(this.form)).then(result=>{
           if(result.data=='200'){
             // let token = this.form.username;
             var obj = {

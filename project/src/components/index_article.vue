@@ -1,14 +1,22 @@
 <template>
-  <div>
+  <div
+    v-loading = "loading"
+    element-loading-text="加载中"
+  >
     <div class="container">
       <div class="son_module">
         <div v-for="sonItem in sonModule" class="box">
             <div class="content">
               <img :src="sonItem.module_src" width="100" height="100">
                 <div class="module_message">
-                  <span>专属部落:{{sonItem.module_name}}</span>
-                  <span>部落简介:{{sonItem.info}}</span>
-                  <router-link :to="'/content/'+sonItem.id">前往相关部落---></router-link>
+                  <span><i class="el-icon-s-home"></i>  专属部落:{{sonItem.module_name}}</span>
+                  <span><i class="el-icon-s-order"></i>  部落简介:{{sonItem.info}}</span>
+                  <span>
+                    <i class="el-icon-location"></i>
+                    <router-link :to="'/content/'+sonItem.id">
+                      前往相关部落-->
+                    </router-link>
+                  </span>
                 </div>
              </div>
           </div>
@@ -28,7 +36,8 @@
         show:false,
         aaa:'2222',
         count:0,
-        id:this.$route.params.id
+        id:this.$route.params.id,
+        loading:true
       }
     },
     async created(){
@@ -41,16 +50,15 @@
       },
       //获取所有父板块
       async getAllFatherModule(){
-        await this.$axios.get("http://localhost/php/sfkbbs/index/getFatherModule.php").then(result=>{
+        await this.$axios.get("index/getFatherModule.php").then(result=>{
           this.fatherModule = result.data;
         })
       },
       async getAllSonModule(){
-        await this.$axios.get("http://localhost/php/sfkbbs/index/getSonModule.php?id="+this.id).then(result=>{
+        await this.$axios.get("index/getSonModule.php?id="+this.id).then(result=>{
           // console.log(result.data);
           this.sonModule = result.data;
-          // console.log(this.sonModule);
-          // console.log(this.fatherId);
+          this.loading = false;
         })
       }
     },
@@ -62,19 +70,22 @@
 
 <style scoped>
   a{
-    color: red;
+    /* color: red; */
+    color: #13CE66;
     text-decoration: none;
   }
   .container{
     width: 100%;
-    height: 100%;
     display: flex;
-    /* background-color: red; */
     justify-content: space-between;
+    font-family: 隶书;
+    font-weight: 1000;
   }
   .son_module{
     width: 100%;
-    height: 70vh;
+    height: 100%;
+    /* height: 70vh; */
+    /* min-height:70vh; */
     display: flex;
     /* justify-content: center;
     flex-wrap: wrap; */
@@ -104,6 +115,9 @@
   .module_message{
     display: flex;
     flex-flow: row wrap;
+  }
+  .module_message span{
+    font-size: 20px;
   }
   .Header{
     height: 10vh;
