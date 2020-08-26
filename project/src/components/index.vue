@@ -147,7 +147,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="less">
  *{margin: 0;padding: 0;}
  /* .router-link-active{
     background: blue;
@@ -161,6 +161,10 @@
       color: #13CE66;
       font-weight: 1000;
       box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.5);
+      @media screen and (max-width:500px){
+        display: none;
+        width: 0;
+      }
   }
   .infoBox span{
     width: 100%;
@@ -185,6 +189,11 @@
     width: 100%;
     height: 100%;
     background-color: #CCCCCC;
+    overflow: hidden;
+    @media screen and (max-width:500px){
+      display: flex;
+      justify-content: space-between;
+    }
   }
   .module{
     width: 100%;
@@ -193,6 +202,9 @@
     height: 10vh;
     background-color: white;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+    // @media screen and (max-width:500px){
+    //   background-color: red;
+    // }
   }
   .link{
     width: 100%;
@@ -209,6 +221,12 @@
     margin-top: 20px;
     background-color: white;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+    @media screen and (max-width:500px){
+      width: 20%;
+      margin-left: 3%;
+      margin-top: 0;
+      // margin-top: ;
+    }
   }
   .category a{
     /* width: 1000px; */
@@ -223,6 +241,11 @@
     flex-wrap: wrap;
     margin-top: 20px;
     box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.5);
+    @media screen and (max-width:500px){
+      min-height: 80vh;
+      min-width: 70%;
+      margin-top: 0;
+    }
   }
   .content{
     width: 90%;
@@ -290,9 +313,15 @@
     .swipers{
       width: 65%;
       box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.5);
+      @media screen and (max-width:500px){
+        width: 100%;
+        height: 30vh;
+        overflow: hidden;
+      }
     }
     .swipers img{
       width: 100%;
+      height: 100%;
     }
     .WebTitle{
       position: absolute;
@@ -303,7 +332,9 @@
       font-weight: 1000;
       /* margin-bottom: 0; */
       padding: 5px 5px;
-      /* position: absolute; left: 200px; top: 50px; background-color: #13CE66; */
+      @media screen and (max-width:500px){
+        display: none;
+      }
     }
   .fatherModuleBox{
     background-color: lightblue;

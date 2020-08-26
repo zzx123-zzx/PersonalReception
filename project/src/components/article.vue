@@ -206,7 +206,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="less">
   * {
     margin: 0;
     padding: 0;
@@ -221,7 +221,8 @@
     width: 100%;
     height: 100%;
     background-color: #CCCCCC;
-    font-family: "黑体"
+    font-family: "黑体";
+    overflow: hidden;
   }
 
   .module {
@@ -255,6 +256,9 @@
     width: 20%;
     background-color: white;
     box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
+    @media screen and (max-width:500px){
+      display: none;
+   }
   }
 
   .arltce {
@@ -266,6 +270,10 @@
     align-content: flex-start;
     flex-wrap: wrap;
     box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.5);
+    @media screen and (max-width:500px){
+      width: 100%;
+      margin-left: 0;
+    }
   }
 
   .content {
@@ -285,10 +293,12 @@
 
   .bodys {
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 30px;
     min-height: 100vh;
+
   }
 
   .blank {
@@ -335,6 +345,9 @@
   .reply_content {
     width: 100%;
     font-size: 1.3em;
+    @media screen and (max-width:500px){
+      font-size: 0.8em;
+    }
   }
 
   .replyButton {

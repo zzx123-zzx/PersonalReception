@@ -9,8 +9,8 @@
             <div class="content">
               <img :src="sonItem.module_src" width="100" height="100">
                 <div class="module_message">
-                  <span><i class="el-icon-s-home"></i>  专属部落:{{sonItem.module_name}}</span>
-                  <span><i class="el-icon-s-order"></i>  部落简介:{{sonItem.info}}</span>
+                  <span><i class="el-icon-s-home"></i>部落:{{sonItem.module_name}}</span>
+                  <span><i class="el-icon-s-order"></i>简介:{{sonItem.info}}</span>
                   <span>
                     <i class="el-icon-location"></i>
                     <router-link :to="'/content/'+sonItem.id">
@@ -68,11 +68,12 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="less">
   a{
     /* color: red; */
     color: #13CE66;
     text-decoration: none;
+    font-size: 1em;
   }
   .container{
     width: 100%;
@@ -111,6 +112,7 @@
   }
   .content img{
     border-radius: 50%;
+
   }
   .module_message{
     display: flex;
@@ -118,6 +120,9 @@
   }
   .module_message span{
     font-size: 20px;
+    @media screen and (max-width:500px){
+      font-size: 0.8em;
+    }
   }
   .Header{
     height: 10vh;
