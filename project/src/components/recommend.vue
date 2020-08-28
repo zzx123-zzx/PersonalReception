@@ -1,16 +1,18 @@
 <template>
   <!-- 推荐文章组件 -->
   <div class="Recommended">
-    <div style="border-bottom: 1px solid #90EE90;text-align: left;">
+    <!-- <div style="border-bottom: 1px solid #90EE90;text-align: left;">
       <i class="el-icon-edit-outline">推荐文章</i>
-    </div>
+    </div> -->
     <div class="location">
-        <a
-        :href=localtions.article_url v-for="localtions in recommend_data"
-        style="text-align: left;"
-        >
-          <i class="el-icon-location">{{localtions.article_title}}...</i>
-        </a>
+       <div>
+         <a
+         :href=localtions.article_url v-for="localtions in recommend_data"
+         style="text-align: left;"
+         >
+           <i class="el-icon-location">文章标题:{{localtions.article_title}}...</i>
+         </a>
+       </div>
     </div>
   </div>
 </template>
@@ -37,7 +39,18 @@
 
 <style scoped>
   .Recommended a {
-    width: 100%;
+    display: block;
     text-align: left;
+    border-bottom: 2px solid #CCCCCC;
+    margin-top: 5px;
+  }
+  .location{
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* width: 400px; */
+  }
+  .location div{
+    /* width: 400px;
+    background-color: red; */
   }
 </style>

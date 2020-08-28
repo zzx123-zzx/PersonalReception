@@ -42,9 +42,8 @@
                   </el-carousel-item>
               </el-carousel>
               <div class="infoBox">
-                  <span>
+                  <!-- <span>
                     <p style="font-size: 1.5em;"><i class="el-icon-info">网站简介 Web info</i></p>
-                    <p>本站是一个讨论各类兴趣话题的聚集地,体育运动,电子竞技,学习探讨,都可以在这里探索您想要的!</p>
                     <p>This site is a gathering place to discuss all kinds of interesting topics, sports, e-sports, learning and discussion, you can explore what you want here!</p>
                   </span>
                   <span>
@@ -55,7 +54,23 @@
                   </span>
                   <span>
                     <p><i class="el-icon-s-custom">站长微信:</i> 1127564950</p>
-                  </span>
+                  </span> -->
+                  <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+                      <el-tab-pane label="网站简介" name="first">
+                        <i class="el-icon-info">网站简介 Web info</i>
+                        <p>本站是一个讨论各类兴趣话题的聚集地,体育运动,电子竞技,学习探讨,都可以在这里探索您想要的!
+                        This site is a gathering place to discuss all kinds of interesting topics, sports, e-sports, learning and discussion, you can explore what you want here!</p>
+                      </el-tab-pane>
+                      <el-tab-pane label="网站信息" name="second">
+                        <p><i class="el-icon-s-home">部落总数:</i> {{module_length}}</p>
+                        <p><i class="el-icon-s-data">文章总数:</i> {{article_length}}</p>
+                        <p><i class="el-icon-s-custom">站长微信:</i> 1127564950</p>
+                      </el-tab-pane>
+                      <el-tab-pane label="推荐内容" name="third">
+                        <recommend></recommend>
+                        <!-- <p><i class="el-icon-s-custom">站长微信:</i> 1127564950</p> -->
+                      </el-tab-pane>
+                  </el-tabs>
               </div>
             </div>
             <!-- 控制显示不同view -->
@@ -71,6 +86,7 @@
 </template>
 
 <script>
+  import recommend from './recommend.vue';
   import banner_js from '../mixin/banner.js';  //封装了一个轮播图的方法，在mixins引入
   export default{
     data(){
@@ -83,7 +99,8 @@
         aaa:'2222',
         count:0,
         module_length:'',  //部落总数
-        article_length:'' //文章总数
+        article_length:'' ,//文章总数
+        activeName: 'second'
       }
     },
     mixins:[banner_js],
@@ -133,6 +150,9 @@
         await this.$axios.get("before/article_length.php").then(result=>{
           this.article_length = result.data;
         })
+      },
+      handleClick(tab, event) {
+          console.log(tab, event);
       }
     },
     watch:{
@@ -143,6 +163,9 @@
     	key(){
     	    return this.$route.path;
     	}
+    },
+    components:{
+      recommend
     }
   }
 </script>
@@ -160,6 +183,8 @@
       border: 1px solid #CCCCCC;
       color: #13CE66;
       font-weight: 1000;
+      overflow: hidden;
+      line-height: 2em;
       box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.5);
       @media screen and (max-width:500px){
         display: none;
